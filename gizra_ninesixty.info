@@ -1,0 +1,32 @@
+name       = Gizra 960 starter theme
+base theme = zen_ninesixty
+core       = 6.x
+description =  960 starter theme
+screenshot = images/screenshot.png
+
+  ; The regions defined in Zen's default page.tpl.php file.  The name in
+  ; brackets is the name of the variable in the page.tpl.php file, (e.g.
+  ; "[content_top]" in the .info file means there should be a $content_top
+  ; variable in the page.tpl.php file.) The text after the equals sign is a
+  ; descriptive text used on the admin/build/blocks page.
+  ;
+  ; To add a new region, copy Zen's page.tpl.php to your sub-theme's directory,
+  ; add a line line to this file, and then add the new variable to your
+  ; page.tpl.php template.
+regions[left]           = left sidebar
+regions[right]          = right sidebar
+regions[navbar]         = navigation bar
+regions[content_top]    = content top
+regions[content_bottom] = content bottom
+regions[header]         = header
+regions[footer]         = footer
+regions[closure_region] = closure
+
+stylesheets[all][]   = gizra_ninesixty.css
+
+; Set the conditional stylesheets that are processed by IE.
+conditional-stylesheets[if IE][all][] = ie.css
+
+
+; Panels layouts. You can place multiple layouts under the "layouts" folder.
+plugins[panels][layouts] = layouts
