@@ -1,12 +1,12 @@
 <?php
-// $Id: twocol_stacked.inc,v 1.1.2.1 2008/12/16 21:27:59 merlinofchaos Exp $
+// $Id:$
 
 /**
  * Implementation of hook_panels_layouts().
  */
-function gizra_basic_panels_layouts() {
+function gizra_ninesixty_basic_panels_layouts() {
   $items['basic'] = array(
-    'title' => t('Nannylove basic layout'),
+    'title' => t('Gizra 960 basic layout'),
     'icon' => 'basic.png',
     'theme' => 'basic',
     'panels' => array(
