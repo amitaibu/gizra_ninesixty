@@ -24,10 +24,15 @@
   // Set the grid of each column. We can key the array with nid, title, body,
   // but by using numeric keys, we allow changing the fields in the Views without
   // harming the theme override.
+  // You may specify an empty value, and this will allow grouping elements
+  // together under the same 960 CSS declarations.
+  // In the following example elements 1, 2, 3 will be placed together in
+  // grid-8.
   $ids = array(
-    '0' => 'grid-2 alpha',
-    '1' => 'grid-3',
-    '2' => 'grid-7 omega',
+    '0' => 'grid-4 alpha',
+    '1' => 'grid-8 omega',
+    '2' => '',
+    '3' => '',
   );
   // Get the ID keys.
   $ids_keys = array_flip(array_keys($fields));
@@ -38,7 +43,11 @@
     <?php print $field->separator; ?>
   <?php endif; ?>
 
-  <<?php print $field->inline_html;?> class="views-field-<?php print $field->class; print ' '. $ids[$ids_keys[$id]]; ?>">
+  <?php if (!empty($ids[$ids_keys[$id]])): ?>
+    <div class="<?php print $ids[$ids_keys[$id]]; ?>">
+  <?php endif; ?>
+
+  <<?php print $field->inline_html;?> class="views-field-<?php print $field->class;?>">
     <?php if ($field->label): ?>
       <label class="views-label-<?php print $field->class; ?>">
         <?php print $field->label; ?>:
@@ -50,4 +59,11 @@
       ?>
       <<?php print $field->element_type; ?> class="field-content"><?php print $field->content; ?></<?php print $field->element_type; ?>>
   </<?php print $field->inline_html;?>>
+
+  <?php if (!isset($ids[$ids_keys[$id] + 1])): ?>
+    </div>
+  <?php elseif (!empty($ids[$ids_keys[$id] + 1])): ?>
+    </div>
+  <?php endif; ?>
+
 <?php endforeach; ?>
