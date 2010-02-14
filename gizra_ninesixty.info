@@ -22,7 +22,7 @@ regions[header]         = header
 regions[footer]         = footer
 regions[closure_region] = closure
 
-stylesheets[all][]   = gizra_ninesixty.css
+stylesheets[all][]   = style.css
 
 ; Set the conditional stylesheets that are processed by IE.
 conditional-stylesheets[if IE][all][] = ie.css
