@@ -97,6 +97,7 @@
     <?php endif; ?>
 
     <?php if (!empty($ids[$ids_keys[$id]])): ?>
+      <!-- Print the grid definition -->
       <div class="<?php print $ids[$ids_keys[$id]]; ?>">
     <?php endif; ?>
 
