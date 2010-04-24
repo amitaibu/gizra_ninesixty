@@ -87,33 +87,34 @@
   // Get the ID keys.
   $ids_keys = array_flip(array_keys($fields));
 ?>
-
-<?php foreach ($fields as $id => $field): ?>
-  <?php if (!empty($field->separator)): ?>
-    <?php print $field->separator; ?>
-  <?php endif; ?>
-
-  <?php if (!empty($ids[$ids_keys[$id]])): ?>
-    <div class="<?php print $ids[$ids_keys[$id]]; ?>">
-  <?php endif; ?>
-
-  <<?php print $field->inline_html;?> class="views-field-<?php print $field->class;?>">
-    <?php if ($field->label): ?>
-      <label class="views-label-<?php print $field->class; ?>">
-        <?php print $field->label; ?>:
-      </label>
+<div class="wrapper-views-row <?php print $row_wrapper;?>">
+  <?php foreach ($fields as $id => $field): ?>
+    <?php if (!empty($field->separator)): ?>
+      <?php print $field->separator; ?>
     <?php endif; ?>
-      <?php
-      // $field->element_type is either SPAN or DIV depending upon whether or not
-      // the field is a 'block' element type or 'inline' element type.
-      ?>
-      <<?php print $field->element_type; ?> class="field-content"><?php print $field->content; ?></<?php print $field->element_type; ?>>
-  </<?php print $field->inline_html;?>>
 
-  <?php if (!isset($ids[$ids_keys[$id] + 1])): ?>
-    </div>
-  <?php elseif (!empty($ids[$ids_keys[$id] + 1])): ?>
-    </div>
-  <?php endif; ?>
+    <?php if (!empty($ids[$ids_keys[$id]])): ?>
+      <div class="<?php print $ids[$ids_keys[$id]]; ?>">
+    <?php endif; ?>
 
-<?php endforeach; ?>
+    <<?php print $field->inline_html;?> class="views-field-<?php print $field->class;?>">
+      <?php if ($field->label): ?>
+        <label class="views-label-<?php print $field->class; ?>">
+          <?php print $field->label; ?>:
+        </label>
+      <?php endif; ?>
+        <?php
+        // $field->element_type is either SPAN or DIV depending upon whether or not
+        // the field is a 'block' element type or 'inline' element type.
+        ?>
+        <<?php print $field->element_type; ?> class="field-content"><?php print $field->content; ?></<?php print $field->element_type; ?>>
+    </<?php print $field->inline_html;?>>
+
+    <?php if (!isset($ids[$ids_keys[$id] + 1])): ?>
+      </div>
+    <?php elseif (!empty($ids[$ids_keys[$id] + 1])): ?>
+      </div>
+    <?php endif; ?>
+
+  <?php endforeach; ?>
+</div>
