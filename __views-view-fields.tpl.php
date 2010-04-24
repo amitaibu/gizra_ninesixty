@@ -21,19 +21,69 @@
 ?>
 
 <?php
-  // Set the grid of each column. We can key the array with nid, title, body,
-  // but by using numeric keys, we allow changing the fields in the Views without
-  // harming the theme override.
-  // You may specify an empty value, and this will allow grouping elements
-  // together under the same 960 CSS declarations.
-  // In the following example elements 1, 2, 3 will be placed together in
-  // grid-8.
+/**
+ * Set the grid of each field. We don't key the array field name (e.g. nid, title, etc')
+ * in order to allow changing the fields or their order in the Views without
+ * harming the theme override.
+ * The following example assumes we have a total grid of 8, and we want to place
+ * the fields next to each other:
+ * @code
+ *  $row_wrapper = 'grid-8';
+ *
+ *  $ids = array(
+ *    '0' => 'grid-4 alpha',
+ *    '1' => 'grid-2',
+ *    '2' => 'grid-2 omega',
+ *  );
+ * @endcode
+ *
+ * Above code will result in this structure:
+ *
+ * +--------------------------8--------------------------+
+ * +-------------------------+ +-----------+ +-----------+
+ * |                         | |           | |           |
+ * |           4             | |     2     | |     2     |
+ * |                         | |           | |           |
+ * +-------------------------+ +-----------+ +-----------+
+ *
+ * In order to group fields together under the same grid definition is done by
+ * specifying and empty value.
+ *
+ * @code
+ *  $row_wrapper = 'grid-8';
+ *
+ *  $ids = array(
+ *    '0' => 'grid-6 alpha',
+ *    '1' => 'grid-2 omega',
+ *    '2' => '',
+ *  );
+ * @endcode
+ *
+ * Above code will result in this structure:
+ *
+ * +--------------------------8--------------------------+
+ * +---------------------------------------+ +-----------+
+ * |                                       | |           |
+ * |                                       | |     2     |
+ * |                                       | |           |
+ * |                   6                   | +-----------+
+ * |                                       | +-----------+
+ * |                                       | |           |
+ * |                                       | |     2     |
+ * |                                       | |           |
+ * +---------------------------------------+ +-----------+
+ */
+
+  $row_wrapper = 'grid-9';
+
   $ids = array(
-    '0' => 'grid-4 alpha',
-    '1' => 'grid-8 omega',
-    '2' => '',
-    '3' => '',
+    '0' => 'grid-3 alpha',
+    '1' => 'grid-3',
+    '2' => 'grid-3 omega',
   );
+?>
+
+<?php
   // Get the ID keys.
   $ids_keys = array_flip(array_keys($fields));
 ?>
