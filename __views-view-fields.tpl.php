@@ -22,9 +22,12 @@
 
 <?php
 /**
- * Set the grid of each field. We don't key the array field name (e.g. nid, title, etc')
- * in order to allow changing the fields or their order in the Views without
- * harming the theme override.
+ * Set the grid of each field. We don't key the array field name (e.g. nid,
+ * title, etc') in order to allow changing the fields or their order in the
+ * Views without harming the theme override.
+ * In order for this theme override to affect your Views you should copy it and
+ * rename it the the file name as suggested by Views.
+ *
  * The following example assumes we have a total grid of 8, and we want to place
  * the fields next to each other:
  * @code
